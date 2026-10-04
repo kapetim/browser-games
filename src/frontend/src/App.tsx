@@ -36,7 +36,7 @@ function GamePlaceholder() {
       <Header />
       <main className="max-w-4xl mx-auto px-6 py-8">
         <div className="p-8 text-center text-gray-500">
-          {game ? `${game.title} — wasm engine coming soon` : 'Game not found'}
+          {game ? `${game.title} — wasm game coming soon` : 'Game not found'}
         </div>
       </main>
     </div>

@@ -1,40 +1,10 @@
-# games
+# browser-games
 
-Games in **all deployable forms** — the same puzzles (sudoku · logic-grid · crosswords) rendered per platform. No backend, no database, no accounts.
-
-## 🚀 Deployables
-
-| Folder | Platform | Renderer |
-| --- | --- | --- |
-| [`browser/`](browser) | web (GitHub Pages) | Rust + WebAssembly |
-| [`windows/`](windows) | native Windows | Godot |
-| [`unix/`](unix) | native Linux / macOS | Godot |
-
-The folder names are **platforms**; the engine is an implementation detail.
-
-## 🧩 Shared
-
-- [`catalog/`](catalog) — `games.yaml` (the source of truth) + tags.
-- [`data/`](data) — per-game puzzle banks.
-- [`assets/`](assets) — submodule ([`kapetim/assets`](https://github.com/kapetim/assets)): images · fonts · audio, shared with the other deployables and `data-science`.
-
-## 🗂️ Structure
-
-```text
-catalog/            games.yaml + tags
-data/               per-game static datasets
-browser/            web deployable
-  rust/             Rust workspace (wasm32 engines)
-  frontend/         React + TS launcher
-windows/            native Windows deployable (Godot)
-unix/               native Unix deployable (Godot)
-assets/             shared assets submodule
-docs/               GAMES / GOALS / REQUIREMENTS
-```
+Browser games built with **Rust → WebAssembly** — sudoku · logic grid · crosswords. Static, solo, offline after first load; no backend, no database, no accounts.
 
 ## 🎮 Games
 
-The catalog ([`catalog/games.yaml`](catalog/games.yaml)) is the source of truth — the three pillars, each mapped to a `/play/<slug>` route:
+The catalog ([`src/catalog/games.yaml`](src/catalog/games.yaml)) is the source of truth — each game maps to a `/play/<slug>` route:
 
 | Game | Route |
 | --- | --- |
@@ -42,7 +12,18 @@ The catalog ([`catalog/games.yaml`](catalog/games.yaml)) is the source of truth 
 | Logic Grid | `/play/logic-puzzles` |
 | Crosswords | `/play/crosswords` |
 
-Other game ideas live as issues — see [`docs/GAMES.md`](docs/GAMES.md). Add-a-game boilerplate: [`docs/ADD-A-GAME.md`](docs/ADD-A-GAME.md).
+Each game **is** a wasm crate under [`src/games/`](src/games); the React launcher ([`src/frontend/`](src/frontend)) is just the host. Other game ideas live as issues — see [`src/docs/GAMES.md`](src/docs/GAMES.md); add-a-game boilerplate: [`src/docs/ADD-A-GAME.md`](src/docs/ADD-A-GAME.md).
+
+## 🗂️ Structure
+
+```text
+src/games/          Rust → wasm32 (one crate per game)
+src/frontend/       React + Vite launcher (host)
+src/catalog/        games.yaml + tags.yaml + manifest.yaml
+src/data/           per-game puzzle banks
+src/docs/           GAMES / GOALS / REQUIREMENTS / ADD-A-GAME
+assets/             shared assets submodule (kapetim/ui-assets)
+```
 
 ## ⚡ Quick start
 
@@ -50,13 +31,17 @@ Other game ideas live as issues — see [`docs/GAMES.md`](docs/GAMES.md). Add-a-
 # assets (submodule)
 git submodule update --init --recursive
 
-# browser deployable
-npm --prefix browser/frontend/launcher run dev
-cargo build --workspace -p sudoku -p logic-grid -p crosswords
+# games (wasm)
+cargo build --workspace -p sudoku -p logic-grid -p crosswords --target wasm32-unknown-unknown
+
+# launcher
+npm --prefix src/frontend ci
+npm --prefix src/frontend run dev
 ```
 
 ## 📄 Docs
 
-- [`docs/GAMES.md`](docs/GAMES.md) — game issue roadmap
-- [`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md) — game requirements
-- [`docs/GOALS.md`](docs/GOALS.md) — project goals
+- [`src/docs/GAMES.md`](src/docs/GAMES.md) — game issue roadmap
+- [`src/docs/REQUIREMENTS.md`](src/docs/REQUIREMENTS.md) — game requirements
+- [`src/docs/GOALS.md`](src/docs/GOALS.md) — project goals
+- [`src/docs/ADD-A-GAME.md`](src/docs/ADD-A-GAME.md) — add a game

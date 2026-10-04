@@ -22,7 +22,7 @@ Every game in `games.yaml` is **one GitHub issue**. The repo ships when issues c
 
 1. Open an issue with the **Game** template (label `game`, slug in title).
 2. Copy the **Must** checklist from [`REQUIREMENTS.md`](REQUIREMENTS.md) into the issue body.
-3. Implement under `src/games/{slug}/` + route `/play/{slug}`.
+3. Implement the wasm game crate under `src/games/{slug}/` (data in `src/data/{slug}/`) + route `/play/{slug}`.
 4. Set `status: active` in `games.yaml` and fill `github_issue: <number>` when done.
 
 ## Create issues from catalog
@@ -31,4 +31,4 @@ Open issues directly in GitHub using the Game template. After creation, update `
 
 ## Tags
 
-Generic tags live in [`tags.yaml`](../tags.yaml). Use them on issues and PRs — not game-specific labels.
+Generic tags live in [`tags.yaml`](../catalog/tags.yaml). Use them on issues and PRs — not game-specific labels.
