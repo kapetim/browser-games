@@ -6,35 +6,35 @@ Games in **all deployable forms** — the same puzzles (sudoku · logic-grid · 
 
 | Folder | Platform | Renderer |
 | --- | --- | --- |
-| [`browser/`](browser) | web (GitHub Pages) | Rust + WebAssembly |
-| [`windows/`](windows) | native Windows | Godot |
-| [`unix/`](unix) | native Linux / macOS | Godot |
+| [`src/browser/`](src/browser) | web (GitHub Pages) | Rust + WebAssembly |
+| [`src/windows/`](src/windows) | native Windows | Godot |
+| [`src/unix/`](src/unix) | native Linux / macOS | Godot |
 
 The folder names are **platforms**; the engine is an implementation detail.
 
 ## 🧩 Shared
 
-- [`catalog/`](catalog) — `games.yaml` (the source of truth) + tags.
-- [`data/`](data) — per-game puzzle banks.
-- [`assets/`](assets) — submodule ([`kapetim/assets`](https://github.com/kapetim/assets)): images · fonts · audio, shared with the other deployables and `data-science`.
+- [`src/catalog/`](src/catalog) — `games.yaml` (the source of truth) + tags.
+- [`src/data/`](src/data) — per-game puzzle banks.
+- [`assets/`](assets) — submodule ([`kapetim/ui-assets`](https://github.com/kapetim/ui-assets)): images · fonts · audio, shared with the other deployables and `data-science`.
 
 ## 🗂️ Structure
 
 ```text
-catalog/            games.yaml + tags
-data/               per-game static datasets
-browser/            web deployable
+src/catalog/        games.yaml + tags
+src/data/           per-game static datasets
+src/browser/        web deployable
   rust/             Rust workspace (wasm32 engines)
   frontend/         React + TS launcher
-windows/            native Windows deployable (Godot)
-unix/               native Unix deployable (Godot)
+src/windows/        native Windows deployable (Godot)
+src/unix/           native Unix deployable (Godot)
 assets/             shared assets submodule
-docs/               GAMES / GOALS / REQUIREMENTS
+src/docs/           GAMES / GOALS / REQUIREMENTS
 ```
 
 ## 🎮 Games
 
-The catalog ([`catalog/games.yaml`](catalog/games.yaml)) is the source of truth — the three pillars, each mapped to a `/play/<slug>` route:
+The catalog ([`src/catalog/games.yaml`](src/catalog/games.yaml)) is the source of truth — the three pillars, each mapped to a `/play/<slug>` route:
 
 | Game | Route |
 | --- | --- |
@@ -42,7 +42,7 @@ The catalog ([`catalog/games.yaml`](catalog/games.yaml)) is the source of truth 
 | Logic Grid | `/play/logic-puzzles` |
 | Crosswords | `/play/crosswords` |
 
-Other game ideas live as issues — see [`docs/GAMES.md`](docs/GAMES.md). Add-a-game boilerplate: [`docs/ADD-A-GAME.md`](docs/ADD-A-GAME.md).
+Other game ideas live as issues — see [`src/docs/GAMES.md`](src/docs/GAMES.md). Add-a-game boilerplate: [`src/docs/ADD-A-GAME.md`](src/docs/ADD-A-GAME.md).
 
 ## ⚡ Quick start
 
@@ -51,12 +51,12 @@ Other game ideas live as issues — see [`docs/GAMES.md`](docs/GAMES.md). Add-a-
 git submodule update --init --recursive
 
 # browser deployable
-npm --prefix browser/frontend/launcher run dev
+npm --prefix src/browser/frontend/launcher run dev
 cargo build --workspace -p sudoku -p logic-grid -p crosswords
 ```
 
 ## 📄 Docs
 
-- [`docs/GAMES.md`](docs/GAMES.md) — game issue roadmap
-- [`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md) — game requirements
-- [`docs/GOALS.md`](docs/GOALS.md) — project goals
+- [`src/docs/GAMES.md`](src/docs/GAMES.md) — game issue roadmap
+- [`src/docs/REQUIREMENTS.md`](src/docs/REQUIREMENTS.md) — game requirements
+- [`src/docs/GOALS.md`](src/docs/GOALS.md) — project goals
