@@ -26,16 +26,16 @@ jobs:
         uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           target: wasm32-unknown-unknown
-      - name: Compile engines
-        run: cargo build --manifest-path src/browser/rust/Cargo.toml --workspace --release --target wasm32-unknown-unknown
+      - name: Compile games (wasm)
+        run: cargo build --manifest-path src/Cargo.toml --workspace --release --target wasm32-unknown-unknown
       - name: Build launcher
         run: |
-          npm --prefix src/browser/frontend/launcher ci
-          npm --prefix src/browser/frontend/launcher run build
+          npm --prefix src/frontend ci
+          npm --prefix src/frontend run build
       - name: Stage site
         run: |
           mkdir -p _site
-          cp -r src/browser/frontend/launcher/dist/* _site/
+          cp -r src/frontend/dist/* _site/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site

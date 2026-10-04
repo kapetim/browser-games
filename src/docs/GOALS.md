@@ -20,7 +20,7 @@ Players who want **quiet, focused logic** — not collection grinds or PvP. You 
 
 ## Data model (sketch)
 
-```
+```text
 src/data/
   manifest.yaml
   sudoku/puzzles.csv      # id, difficulty, givens, solution
@@ -30,7 +30,7 @@ src/data/
 
 ## Routes
 
-```
+```text
 /play/browser-games           → puzzle picker
 /play/browser-games/sudoku  → play
 /play/browser-games/chess

@@ -1,8 +1,10 @@
 name: Release
 
+# Manual only. Tags the current main and publishes a release — creates no commit
+# on main. (No automated tag-on-push.)
+
 on:
-  push:
-    branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: write

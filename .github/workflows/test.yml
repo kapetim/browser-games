@@ -18,6 +18,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+      # TODO(kapetim/cli): drop Node here and run `cli lint markdown` from the
+      # kapetim/cli image once it is published to Docker Hub.
       - run: npm install --global --no-audit --no-fund markdownlint-cli@0.49.1
       - run: markdownlint --config scripts/.markdownlint.json '**/*.md'
 
@@ -31,7 +33,7 @@ jobs:
       - uses: actions-rust-lang/setup-rust-toolchain@v1
         with:
           target: wasm32-unknown-unknown
-      - run: cargo check --manifest-path src/browser/rust/Cargo.toml --workspace --target wasm32-unknown-unknown
+      - run: cargo check --manifest-path src/Cargo.toml --workspace --target wasm32-unknown-unknown
       - run: |
-          npm --prefix src/browser/frontend/launcher ci
-          npm --prefix src/browser/frontend/launcher run build
+          npm --prefix src/frontend ci
+          npm --prefix src/frontend run build
