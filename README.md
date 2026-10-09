@@ -22,7 +22,7 @@ src/frontend/       React + Vite launcher (host)
 src/catalog/        games.yaml + tags.yaml + manifest.yaml
 src/data/           per-game puzzle banks
 docs/           GAMES / GOALS / REQUIREMENTS / ADD-A-GAME
-assets/             shared assets submodule (kapetim/ui-assets)
+src/assets/         shared assets submodule (kapetim/ui-assets)
 ```
 
 ## ⚡ Quick start
