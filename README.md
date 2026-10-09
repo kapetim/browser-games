@@ -12,7 +12,7 @@ The catalog ([`src/catalog/games.yaml`](src/catalog/games.yaml)) is the source o
 | Logic Grid | `/play/logic-puzzles` |
 | Crosswords | `/play/crosswords` |
 
-Each game **is** a wasm crate under [`src/games/`](src/games); the React launcher ([`src/frontend/`](src/frontend)) is just the host. Other game ideas live as issues — see [`src/docs/GAMES.md`](src/docs/GAMES.md); add-a-game boilerplate: [`src/docs/ADD-A-GAME.md`](src/docs/ADD-A-GAME.md).
+Each game **is** a wasm crate under [`src/games/`](src/games); the React launcher ([`src/frontend/`](src/frontend)) is just the host. Other game ideas live as issues — see [`docs/GAMES.md`](docs/GAMES.md); add-a-game boilerplate: [`docs/ADD-A-GAME.md`](docs/ADD-A-GAME.md).
 
 ## 🗂️ Structure
 
@@ -21,7 +21,7 @@ src/games/          Rust → wasm32 (one crate per game)
 src/frontend/       React + Vite launcher (host)
 src/catalog/        games.yaml + tags.yaml + manifest.yaml
 src/data/           per-game puzzle banks
-src/docs/           GAMES / GOALS / REQUIREMENTS / ADD-A-GAME
+docs/           GAMES / GOALS / REQUIREMENTS / ADD-A-GAME
 assets/             shared assets submodule (kapetim/ui-assets)
 ```
 
@@ -41,7 +41,7 @@ npm --prefix src/frontend run dev
 
 ## 📄 Docs
 
-- [`src/docs/GAMES.md`](src/docs/GAMES.md) — game issue roadmap
-- [`src/docs/REQUIREMENTS.md`](src/docs/REQUIREMENTS.md) — game requirements
-- [`src/docs/GOALS.md`](src/docs/GOALS.md) — project goals
-- [`src/docs/ADD-A-GAME.md`](src/docs/ADD-A-GAME.md) — add a game
+- [`docs/GAMES.md`](docs/GAMES.md) — game issue roadmap
+- [`docs/REQUIREMENTS.md`](docs/REQUIREMENTS.md) — game requirements
+- [`docs/GOALS.md`](docs/GOALS.md) — project goals
+- [`docs/ADD-A-GAME.md`](docs/ADD-A-GAME.md) — add a game

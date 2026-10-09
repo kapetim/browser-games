@@ -31,4 +31,4 @@ Open issues directly in GitHub using the Game template. After creation, update `
 
 ## Tags
 
-Generic tags live in [`tags.yaml`](../catalog/tags.yaml). Use them on issues and PRs — not game-specific labels.
+Generic tags live in [`tags.yaml`](../src/catalog/tags.yaml). Use them on issues and PRs — not game-specific labels.

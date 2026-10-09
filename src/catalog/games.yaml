@@ -20,7 +20,7 @@ games:
     description: Classic 9×9 grids — generator + auto-solve, notes, check, reveal.
     frontend_route: /play/sudoku
     tags: [grid, logic, offline, newspaper, click]
-    requirements: src/docs/REQUIREMENTS.md#sudoku
+    requirements: docs/REQUIREMENTS.md#sudoku
 
   logic-puzzles:
     title: Logic Grid
@@ -31,7 +31,7 @@ games:
     description: Grid deduction — categories, clues, green-check marking (the phrases game).
     frontend_route: /play/logic-puzzles
     tags: [grid, logic, offline, newspaper, click]
-    requirements: src/docs/REQUIREMENTS.md#logic-puzzles
+    requirements: docs/REQUIREMENTS.md#logic-puzzles
 
   crosswords:
     title: Crosswords
@@ -42,4 +42,4 @@ games:
     description: Clue list plus grid — solver-first with a curated puzzle bank.
     frontend_route: /play/crosswords
     tags: [word, grid, offline, newspaper, click]
-    requirements: src/docs/REQUIREMENTS.md#crosswords
+    requirements: docs/REQUIREMENTS.md#crosswords
